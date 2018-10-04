@@ -37,7 +37,7 @@ TBD
 
 - GET `/` - Test the api is active
 
-- POST `/sql` - Run a single SQL command and get the result back in JSON:
+- POST `/sql` - Run an SQL command and get the result back in JSON:
 
   ```json
   {
