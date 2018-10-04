@@ -1,0 +1,32 @@
+{
+  "name": "iseries-api",
+  "version": "1.0.0",
+  "description": "REST API and Websocket for access to IBM iSeries (IBMi) and AS/400 systems",
+  "main": "index.js",
+  "repository": "https://github.com/timmo001/iseries-api",
+  "author": "Timmo <contact@timmo.xyz>",
+  "license": "MIT",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "mocha --exit"
+  },
+  "dependencies": {
+    "cookie-parser": "^1.4.3",
+    "cors": "^2.8.4",
+    "debug": "^4.0.1",
+    "express": "^4.16.3",
+    "helmet": "^3.13.0",
+    "http-errors": "^1.7.1",
+    "lokijs": "^1.5.5",
+    "morgan": "^1.9.1",
+    "node-tunein-radio": "^0.3.1",
+    "pug": "^2.0.3",
+    "superagent": "^3.8.3"
+  },
+  "devDependencies": {
+    "mocha": "^5.2.0",
+    "nodemon": "^1.18.4",
+    "supertest": "^3.3.0"
+  }
+}
