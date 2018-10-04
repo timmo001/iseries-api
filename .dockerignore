@@ -1,0 +1,15 @@
+node_modules
+npm-debug.log
+Dockerfile*
+docker-compose*
+.dockerignore
+.git*
+README.md
+LICENSE.md
+.vscode
+config.json
+config.template.json
+docs/
+.yamllint
+.mdlrc
+.eslintrc.json
