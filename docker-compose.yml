@@ -1,0 +1,14 @@
+---
+version: '3'
+
+services:
+  api:
+    image: iseries-api
+    build: .
+    environment:
+      NODE_ENV: production
+      CERTIFICATES_DIR: /ssl
+    ports:
+      - 3234:3234
+    volumes:
+      - ~/ssl:/ssl
