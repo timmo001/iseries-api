@@ -41,7 +41,7 @@ TBD
 
   ```json
   {
-    "host": "server_hostname",
+    "hostname": "server_hostname",
     "username": "username",
     "password": "password",
     "command": "SELECT * FROM SOMETHING"
