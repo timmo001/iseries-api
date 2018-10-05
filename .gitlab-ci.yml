@@ -173,7 +173,7 @@ stages:
       docker manifest create \
         "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}"
         # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:aarch64-${REF}" \
-        # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:amd64-${REF}" \
+        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:amd64-${REF}"
         # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:armhf-${REF}" \
         # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:i386-${REF}"
     # - |
