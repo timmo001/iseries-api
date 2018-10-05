@@ -10,6 +10,7 @@ COPY . .
 # Install packages
 RUN \
     apk add --no-cache \
+     python2=2.7.15-r1 \
      nodejs-current=9.11.1-r2 \
      yarn=1.7.0-r0
 
