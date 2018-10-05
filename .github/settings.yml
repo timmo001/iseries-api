@@ -125,10 +125,6 @@ labels:
     color: e6e6e6
     description: "Issue is closed, marked as not a valid issue (e.g., an user error)."
     oldname: "Invalid"
-  - name: "Closed: Wrong repository"
-    color: e6e6e6
-    description: "Issue is closed, was created in the wrong repository."
-    oldname: "Wrong repository"
   - name: "Closed: Won't Fix"
     color: e6e6e6
     description: "Issue is closed, it won't be fixed."
@@ -156,9 +152,6 @@ labels:
   - name: "Architecture"
     description: "Related to how the app works and/or is built"
     color: d1924f
-  - name: "Code Climate"
-    description: "Issues created by Code Climate"
-    color: 42f477
 
 branches:
   - name: master
