@@ -15,13 +15,30 @@ module.exports = (app, jsonParser) => {
       if (req.body.command.toUpperCase().startsWith('SELECT')) {
         pool.query(req.body.command)
           .then(result => {
-            console.log('result:', result);
             res.status(200).json(result);
           })
           .fail(error => {
             console.log('error:', error);
             res.status(400).send(error);
           });
+      } else if (req.body.command.toUpperCase().startsWith('UPDATE')) {
+        pool.update(req.body.command).then(nUpdated => {
+          const message = 'Updated ' + nUpdated + ' rows';
+          console.log(message);
+          res.status(400).json({ message });
+        });
+      } else if (req.body.command.toUpperCase().startsWith('DELETE')) {
+        pool.update(req.body.command).then(nUpdated => {
+          const message = 'Deleted ' + nUpdated + ' rows';
+          console.log(message);
+          res.status(400).json({ message });
+        });
+      } else if (req.body.command.toUpperCase().startsWith('INSERT')) {
+        pool.insertAndGetId(req.body.command).then(id => {
+          const message = 'Inserted new row with id ' + id;
+          console.log(message);
+          res.status(200).json({ message, id });
+        });
       }
     }
   });
