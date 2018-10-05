@@ -8,11 +8,15 @@ WORKDIR /usr/src/app
 COPY . .
 
 # Install packages
-RUN \
-    apk add --no-cache \
-     python2=2.7.15-r1 \
-     nodejs-current=9.11.1-r2 \
-     yarn=1.7.0-r0
+RUN apk add --no-cache \
+      curl=7.61.1-r0 \
+      ca-certificates=20171114-r3 \
+      bash=4.4.19-r1 \
+      make=4.2.1-r2 \
+      g++=6.4.0-r9 \
+      python2=2.7.15-r1 \
+      nodejs-current=9.11.1-r2 \
+      yarn=1.7.0-r0
 
 # Install dependencies
 RUN yarn install && yarn cache clean
