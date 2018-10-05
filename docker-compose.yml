@@ -9,6 +9,6 @@ services:
       NODE_ENV: production
       CERTIFICATES_DIR: /ssl
     ports:
-      - 3234:3234
+      - 28365:28365
     volumes:
       - ~/ssl:/ssl

@@ -1,4 +1,4 @@
-ARG BUILD_FROM=openjdk:12-jdk-alpine3.8
+ARG BUILD_FROM=frolvlad/alpine-oraclejdk8
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -22,7 +22,7 @@ RUN apk add --no-cache \
 RUN yarn install && yarn cache clean
 
 # Expose outbound ports
-EXPOSE 3234
+EXPOSE 28365
 
 # Build arguments
 ARG BUILD_ARCH

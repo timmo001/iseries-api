@@ -171,37 +171,37 @@ stages:
     - REF="${REF:-${CI_COMMIT_SHA:0:7}}"
     - |
       docker manifest create \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:aarch64-${REF}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:amd64-${REF}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:armhf-${REF}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:i386-${REF}"
-    - |
-      docker manifest annotate \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:aarch64-${REF}" \
-        --os=linux \
-        --arch=arm64 \
-        --variant=v8
+        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}"
+        # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:aarch64-${REF}" \
+        # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:amd64-${REF}" \
+        # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:armhf-${REF}" \
+        # "${DOCKER_HUB_USER}/${IMAGE_SLUG}:i386-${REF}"
+    # - |
+    #   docker manifest annotate \
+    #     "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
+    #     "${DOCKER_HUB_USER}/${IMAGE_SLUG}:aarch64-${REF}" \
+    #     --os=linux \
+    #     --arch=arm64 \
+    #     --variant=v8
     - |
       docker manifest annotate \
         "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
         "${DOCKER_HUB_USER}/${IMAGE_SLUG}:amd64-${REF}" \
         --os=linux \
         --arch=amd64
-    - |
-      docker manifest annotate \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:armhf-${REF}" \
-        --os=linux \
-        --arch=arm \
-        --variant=v6
-    - |
-      docker manifest annotate \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
-        "${DOCKER_HUB_USER}/${IMAGE_SLUG}:i386-${REF}" \
-        --os=linux \
-        --arch=386
+    # - |
+    #   docker manifest annotate \
+    #     "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
+    #     "${DOCKER_HUB_USER}/${IMAGE_SLUG}:armhf-${REF}" \
+    #     --os=linux \
+    #     --arch=arm \
+    #     --variant=v6
+    # - |
+    #   docker manifest annotate \
+    #     "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}" \
+    #     "${DOCKER_HUB_USER}/${IMAGE_SLUG}:i386-${REF}" \
+    #     --os=linux \
+    #     --arch=386
     - |
       docker manifest push \
         "${DOCKER_HUB_USER}/${IMAGE_SLUG}:${TAG}"
@@ -282,57 +282,57 @@ markdownlint:
     - mdl --style all --warnings .
 
 # Build Jobs
-build:armhf:
-  <<: *build
-  variables:
-    IMAGE_ARCH: armhf
-    FROM: arm32v6/openjdk:12-jdk-alpine3.8
-  tags:
-    - build
-    - armhf
+# build:armhf:
+#   <<: *build
+#   variables:
+#     IMAGE_ARCH: armhf
+#     FROM: arm32v6/openjdk:12-jdk-alpine3.8
+#   tags:
+#     - build
+#     - armhf
 
-build:aarch64:
-  <<: *build
-  variables:
-    IMAGE_ARCH: aarch64
-    FROM: arm64v8/openjdk:12-jdk-alpine3.8
-  tags:
-    - build
-    - aarch64
+# build:aarch64:
+#   <<: *build
+#   variables:
+#     IMAGE_ARCH: aarch64
+#     FROM: arm64v8/openjdk:12-jdk-alpine3.8
+#   tags:
+#     - build
+#     - aarch64
 
-build:i386:
-  <<: *build
-  variables:
-    IMAGE_ARCH: i386
-    FROM: i386/openjdk:12-jdk-alpine3.8
-  tags:
-    - build
-    - i386
+# build:i386:
+#   <<: *build
+#   variables:
+#     IMAGE_ARCH: i386
+#     FROM: i386/openjdk:12-jdk-alpine3.8
+#   tags:
+#     - build
+#     - i386
 
 build:amd64:
   <<: *build
   variables:
     IMAGE_ARCH: amd64
-    FROM: amd64/openjdk:12-jdk-alpine3.8
+    FROM: frolvlad/alpine-oraclejdk8
   tags:
     - build
     - amd64
 
 # Scan jobs
-clair:armhf:
-  <<: *scan
-  variables:
-    IMAGE_ARCH: armhf
+# clair:armhf:
+#   <<: *scan
+#   variables:
+#     IMAGE_ARCH: armhf
 
-clair:aarch64:
-  <<: *scan
-  variables:
-    IMAGE_ARCH: aarch64
+# clair:aarch64:
+#   <<: *scan
+#   variables:
+#     IMAGE_ARCH: aarch64
 
-clair:i386:
-  <<: *scan
-  variables:
-    IMAGE_ARCH: i386
+# clair:i386:
+#   <<: *scan
+#   variables:
+#     IMAGE_ARCH: i386
 
 clair:amd64:
   <<: *scan
@@ -397,20 +397,20 @@ dep_scan:
     - tags
 
 # Deploy jobs
-deploy:armhf:
-  <<: *deploy
-  variables:
-    IMAGE_ARCH: armhf
+# deploy:armhf:
+#   <<: *deploy
+#   variables:
+#     IMAGE_ARCH: armhf
 
-deploy:aarch64:
-  <<: *deploy
-  variables:
-    IMAGE_ARCH: aarch64
+# deploy:aarch64:
+#   <<: *deploy
+#   variables:
+#     IMAGE_ARCH: aarch64
 
-deploy:i386:
-  <<: *deploy
-  variables:
-    IMAGE_ARCH: i386
+# deploy:i386:
+#   <<: *deploy
+#   variables:
+#     IMAGE_ARCH: i386
 
 deploy:amd64:
   <<: *deploy
