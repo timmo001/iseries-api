@@ -286,7 +286,7 @@ build:armhf:
   <<: *build
   variables:
     IMAGE_ARCH: armhf
-    FROM: arm32v6/alpine:3.8
+    FROM: arm32v6/openjdk:12-jdk-alpine3.8
   tags:
     - build
     - armhf
@@ -295,7 +295,7 @@ build:aarch64:
   <<: *build
   variables:
     IMAGE_ARCH: aarch64
-    FROM: arm64v8/alpine:3.8
+    FROM: arm64v8/openjdk:12-jdk-alpine3.8
   tags:
     - build
     - aarch64
@@ -304,7 +304,7 @@ build:i386:
   <<: *build
   variables:
     IMAGE_ARCH: i386
-    FROM: i386/alpine:3.8
+    FROM: i386/openjdk:12-jdk-alpine3.8
   tags:
     - build
     - i386
@@ -313,7 +313,7 @@ build:amd64:
   <<: *build
   variables:
     IMAGE_ARCH: amd64
-    FROM: amd64/alpine:3.8
+    FROM: amd64/openjdk:12-jdk-alpine3.8
   tags:
     - build
     - amd64
