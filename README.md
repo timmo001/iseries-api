@@ -3,7 +3,6 @@
 [![GitHub Release](https://img.shields.io/github/release/timmo001/iseries-api.svg)](https://github.com/timmo001/iseries-api/releases)
 [![License](https://img.shields.io/github/license/timmo001/iseries-api.svg)](LICENSE.md)
 [![pipeline status](https://gitlab.com/timmo/iseries-api/badges/master/pipeline.svg)](https://gitlab.com/timmo/iseries-api/commits/master)
-[![Waffle.io - Columns and their card count](https://badge.waffle.io/timmo001/iseries-api.svg?columns=To%20Do,On%20Hold,In%20Progress,Done)](https://waffle.io/timmo001/iseries-api)
 [![Greenkeeper badge](https://badges.greenkeeper.io/timmo001/iseries-api.svg)](https://greenkeeper.io/)
 
 [![Docker Version][version-shield]][microbadger]
@@ -23,7 +22,8 @@ REST API and Websocket for access to IBM iSeries (IBMi) and AS/400 systems
 ## Features
 
 - Access to the IBMi via an expressjs REST API or Websocket
-- Run commands using just but passing in your server host, username and password
+- Run commands by passing in your server host, username and password + the
+ command
 
 ## Setup
 
