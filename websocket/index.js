@@ -4,7 +4,7 @@ module.exports = server => {
   const wss = new WebSocket.Server({ server });
 
   wss.on('connection', ws => {
-    console.log('WS Connection:', ws);
+    console.log('New WS Connection');
     ws.send('Hello!');
     ws.on('message', incoming = (message) => {
       message = JSON.parse(message);
