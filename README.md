@@ -29,8 +29,6 @@ REST API and Websocket for access to IBM iSeries (IBMi) and AS/400 systems
 
 ### Docker Compose
 
----
-
 - Install [Docker](https://www.docker.com/community-edition) and
  [Docker Compose](https://docs.docker.com/compose/install/)
 - Create a directory for your compose file. For example, `iseries-api`
@@ -78,8 +76,6 @@ services:
 
 ### Docker
 
----
-
 - Install [Docker](https://www.docker.com/community-edition)
 - Create a `config.json` using the [template][template]
 - Run image
@@ -112,8 +108,6 @@ docker run -d \
 ```
 
 ### Node JS
-
----
 
 - First clone the repository
 - Checkout the version you want via releases
