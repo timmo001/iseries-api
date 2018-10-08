@@ -1,16 +1,7 @@
 const sql = require('../common/sql');
 
-const run = (ws, req) => {
+module.exports = (req, cb) => {
   sql(req, response => {
-    response.date = new Date();
-    ws.send(JSON.stringify(response));
-    console.log(`Response to '${req.request}' sent.`);
+    cb(response);
   });
-};
-
-module.exports = (ws, req) => {
-  run(ws, req);
-  setInterval(() => {
-    run(ws, req);
-  }, 10000);
 };
