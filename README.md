@@ -126,6 +126,19 @@ TBD
   }
   ```
 
+- POST `/message` - Get AS400
+ [messages](https://javadoc.midrange.com/jtopen/index.html?com/ibm/as400/access/MessageFile.html).
+
+  ```json
+  {
+    "hostname": "server_hostname",
+    "username": "username",
+    "password": "password",
+    "path": "/QSYS.LIB/YOURLIB.LIB/YOURMSGF.MSGF",
+    "message_id": "AMX0051"
+  }
+  ```
+
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
