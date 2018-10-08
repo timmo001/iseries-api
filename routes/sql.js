@@ -5,11 +5,7 @@ module.exports = (app, jsonParser) => {
     else if (!req.body.hostname) { console.log('Bad hostname'); res.status(400).send('No hostname! You must provide one!'); }
     else if (!req.body.command) { console.log('Bad command'); res.status(400).send('No command! You must provide one!'); }
     else {
-      const config = {
-        host: req.body.hostname,
-        user: req.body.username,
-        password: req.body.password
-      }
+      const config = { host: req.body.hostname, user: req.body.username, password: req.body.password };
       const pool = require('node-jt400').pool(config);
 
       if (req.body.command.toUpperCase().startsWith('SELECT')) {

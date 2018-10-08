@@ -6,11 +6,7 @@ module.exports = (app, jsonParser) => {
     else if (!req.body.table) { console.log('Bad table'); res.status(400).send('No table! You must provide one!'); }
     else if (!req.body.data) { console.log('Bad data'); res.status(400).send('No data! You must provide some!'); }
     else {
-      const config = {
-        host: req.body.hostname,
-        user: req.body.username,
-        password: req.body.password
-      }
+      const config = { host: req.body.hostname, user: req.body.username, password: req.body.password };
       const pool = require('node-jt400').pool(config),
         keys = Object.keys(req.body.data[0]);
       let values = [], dataArr = [];

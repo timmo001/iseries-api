@@ -1,5 +1,5 @@
 module.exports = (app, jsonParser) => {
-  app.get('/', (req, res) => {
+  app.get('/', (_req, res) => {
     res.render('index', { title: 'iSeries API' });
   });
   require('./sql')(app, jsonParser);
