@@ -69,6 +69,40 @@ TBD
 
   Be sure that all items are the same in the data array.
 
+- POST `/ifs/read` - Read a file from the IFS and return its data:
+
+  ```json
+  {
+    "hostname": "server_hostname",
+    "username": "username",
+    "password": "password",
+    "path": "/path/to/file.txt"
+  }
+  ```
+
+- POST `/ifs/write` - Write to a file in the IFS:
+
+  ```json
+  {
+    "hostname": "server_hostname",
+    "username": "username",
+    "password": "password",
+    "path": "/path/to/file.txt",
+    "data": "test data"
+  }
+  ```
+
+- POST `/ifs/delete` - Delete a file in the IFS:
+
+  ```json
+  {
+    "hostname": "server_hostname",
+    "username": "username",
+    "password": "password",
+    "path": "/path/to/file.txt"
+  }
+  ```
+
 - POST `/pgm` - Run a program. Set the parameters with `params` and run with `props`.
 
   ```json
