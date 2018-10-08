@@ -32,7 +32,6 @@ REST API and Websocket for access to IBM iSeries (IBMi) and AS/400 systems
 - Install [Docker](https://www.docker.com/community-edition) and
  [Docker Compose](https://docs.docker.com/compose/install/)
 - Create a directory for your compose file. For example, `iseries-api`
-- Create a `config.json` using the [template][template]
 - Create a `docker-compose.yml` file:
 
 #### SSL
@@ -59,9 +58,9 @@ services:
 
 #### Non-SSL
 
-    This example shows how to set up the app without ssl. This is useful for
-     testing, but is **unsecure**, so don't expose the app to the outside
-     world.
+> This example shows how to set up the app without ssl. This is useful for
+> testing, but is **unsecure**, so don't expose the app to the outside
+> world.
 
 ```yaml
 ---
@@ -77,7 +76,6 @@ services:
 ### Docker
 
 - Install [Docker](https://www.docker.com/community-edition)
-- Create a `config.json` using the [template][template]
 - Run image
 
 #### SSL
