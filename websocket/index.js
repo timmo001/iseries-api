@@ -5,7 +5,6 @@ module.exports = server => {
 
   wss.on('connection', ws => {
     console.log('New WS Connection');
-    ws.send('Hello!');
     ws.on('message', incoming = (message) => {
       message = JSON.parse(message);
       switch (message.request) {
