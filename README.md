@@ -50,6 +50,25 @@ TBD
 
   Supports `SELECT` `UPDATE` `DELETE` and `INSERT` commands.
 
+- POST `/insert` - Batch insert data into a table:
+
+  ```json
+  {
+    "hostname": "server_hostname",
+    "username": "username",
+    "password": "password",
+    "table": "ZZATTSTF",
+    "data": [
+      { "VLFD256A": "Test 09" },
+      { "VLFD256A": "Test 10" },
+      { "VLFD256A": "Test 11" },
+      { "VLFD256A": "Test 12" }
+    ]
+  }
+  ```
+
+  Be sure that all items are the same in the data array.
+
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg
