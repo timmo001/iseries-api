@@ -23,7 +23,8 @@
     "node-jt400": "^1.6.1",
     "node-tunein-radio": "^0.3.1",
     "pug": "^2.0.3",
-    "superagent": "^3.8.3"
+    "superagent": "^3.8.3",
+    "ws": "^6.1.0"
   },
   "devDependencies": {
     "mocha": "^5.2.0",

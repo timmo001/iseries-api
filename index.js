@@ -82,6 +82,8 @@ if (fs.existsSync('fullchain.pem')) {
   console.log('SSL (HTTPS) is not active!!!');
 }
 
+require('./websocket')(server, {});
+
 /**
  * Listen on provided port, on all network interfaces.
  */
