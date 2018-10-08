@@ -69,6 +69,29 @@ TBD
 
   Be sure that all items are the same in the data array.
 
+- POST `/pgm` - Run a program. Set the parameters with `params` and run with `props`.
+
+  ```json
+  {
+    "hostname": "server_hostname",
+    "username": "username",
+    "password": "password",
+    "program": "MYPROGRAM",
+    "params": [
+      { "type": "DECIMAL", "precision": 10, "scale": 0, "name": "myId" },
+      { "type": "NUMERIC", "precision": 8, "scale": 0, "name": "myDate" },
+      { "type": "NUMERIC", "precision": 12, "scale": 2, "name": "myTotalValue" },
+      { "type": "CHAR", "precision": 32, "scale": 0, "name": "myString" }
+    ],
+    "props": {
+      "myId": 123,
+      "myDate": "20170608",
+      "myTotalValue": 88450.57,
+      "myString": "This is a test"
+    }
+  }
+  ```
+
 [aarch64-shield]: https://img.shields.io/badge/aarch64-yes-green.svg
 [amd64-shield]: https://img.shields.io/badge/amd64-yes-green.svg
 [armhf-shield]: https://img.shields.io/badge/armhf-yes-green.svg

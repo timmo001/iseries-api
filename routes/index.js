@@ -5,4 +5,5 @@ module.exports = (app, jsonParser) => {
   require('./sql')(app, jsonParser);
   require('./insert')(app, jsonParser);
   require('./ifs')(app, jsonParser);
+  require('./pgm')(app, jsonParser);
 };
