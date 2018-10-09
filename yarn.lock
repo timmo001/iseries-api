@@ -1820,10 +1820,10 @@ nocache@2.0.0:
   resolved "https://registry.yarnpkg.com/nocache/-/nocache-2.0.0.tgz#202b48021a0c4cbde2df80de15a17443c8b43980"
   integrity sha1-ICtIAhoMTL3i34DeFaF0Q8i0OYA=
 
-node-jt400@^1.6.1:
-  version "1.6.1"
-  resolved "https://registry.npmjs.org/node-jt400/-/node-jt400-1.6.1.tgz#dc55e10947f14e4c3142c4b588048cdefae9db40"
-  integrity sha512-mEe46xWwzW1YjCbhBPSkXSD4PYhiTTey435mq6AQRWLH+N7JH+ruLddWzXOFMnwEhaN3V3NVL0Qg9bvvX8RdIA==
+node-jt400@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/node-jt400/-/node-jt400-2.0.0.tgz#e7760ce6eee0b21147d44c713f57aea3a21ffbbc"
+  integrity sha512-JoeSTGZQoGoHDF6fIBq2ojX1x1KnAQqEmExfciUmE0uKayHHaP41V9+gwahL5SE6SFDUHhotcdvhn8vZ26+hzA==
   dependencies:
     JSONStream "^1.3.2"
     flushwritable "^1.0.0"
