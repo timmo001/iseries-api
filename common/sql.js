@@ -40,7 +40,6 @@ module.exports = (req, cb) => {
             });
           });
           require('wait-until')(100, 1000, () => columns.length === tables.length, () => {
-            console.log({ OK: true, message: { columns, result } });
             cb({ OK: true, message: { columns, result: result.message } });
           });
         } else cb({ OK: true, message: result });
