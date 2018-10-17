@@ -136,7 +136,8 @@ Run an SQL command and get the result back in JSON:
   "hostname": "server_hostname",
   "username": "username",
   "password": "password",
-  "command": "SELECT * FROM SOMETHING"
+  "command": "SELECT * FROM SOMETHING",
+  "get_columns": false
 }
 ```
 
