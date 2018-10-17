@@ -22,8 +22,8 @@ module.exports = (app, jsonParser) => {
       const pool = require('node-jt400').pool(config);
       pool.ifs().deleteFile(req.body.path)
         .then(success => {
-          if (success) res.status(200).json({ message: `Delete ${req.body.path} successful` })
-          else res.status(500).json({ message: `Error deleting ${req.body.path}` });
+          if (success) res.status(200).json({ result: `Delete ${req.body.path} successful` })
+          else res.status(500).json({ result: `Error deleting ${req.body.path}` });
         });
     }
   });
@@ -38,8 +38,8 @@ module.exports = (app, jsonParser) => {
       const pool = require('node-jt400').pool(config);
       const writeStream = pool.ifs().createWriteStream(req.body.path);
       writeStream.write(req.body.data, error => {
-        if (error) res.status(500).json({ message: `Error writing to ${req.body.path}`, data: error });
-        else res.status(200).json({ message: `Write to ${req.body.path} successful` });
+        if (error) res.status(500).json({ result: `Error writing to ${req.body.path}`, data: error });
+        else res.status(200).json({ result: `Write to ${req.body.path} successful` });
       });
     }
   });

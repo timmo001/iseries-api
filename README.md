@@ -123,8 +123,8 @@ docker run -d \
 
 ## Websocket Usage
 
-Connect to the same port as you would for the API. Send stringified JSON as
- the message.
+Connect to the same port as you would for the API. Sends stringified JSON as
+ the result.
 
 ### SQL
 
