@@ -31,17 +31,27 @@ module.exports = (req, cb) => {
             if (c === 'from') canAdd = true;
           });
 
-          console.log('tables:', tables);
-
           const columns = [];
           tables.map(table => {
-            return query(pool, `SELECT * FROM SYSCOLUMNS WHERE TBNAME = '${table.toUpperCase()}'`, result => {
-              columns.push({ table, data: result.message });
-            });
+            table = table.toUpperCase();
+            let schemaSepIndex = table.indexOf('/');
+            if (schemaSepIndex < 0) schemaSepIndex = table.indexOf('.');
+            return query(pool, `SELECT * FROM SYSCOLUMNS WHERE TBNAME = '${
+              table.substr(schemaSepIndex + 1)
+              }'`, result => {
+                const columnsInner = [];
+                result.message.map(r => {
+                  if (r.TABLE_SCHEMA === table.substr(0, schemaSepIndex))
+                    columnsInner.push(r);
+                });
+                columns.push({ table, data: columnsInner });
+              });
           });
+
           require('wait-until')(100, 1000, () => columns.length === tables.length, () => {
             cb({ OK: true, message: { columns, result: result.message } });
           });
+
         } else cb({ OK: true, message: result });
       });
     } else if (req.command.toUpperCase().startsWith('UPDATE')) {

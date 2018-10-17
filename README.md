@@ -136,10 +136,13 @@ Run an SQL command and get the result back in JSON:
   "hostname": "server_hostname",
   "username": "username",
   "password": "password",
-  "command": "SELECT * FROM SOMETHING",
+  "command": "SELECT * FROM SOMESCHEMA.SOMETABLE",
   "get_columns": false
 }
 ```
+
+> Note that `get_columns` requires a set schema.
+> ie. requires `SOMESCHEMA.SOMETABLE`
 
 ## API Usage
 
