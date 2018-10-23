@@ -1,13 +1,4 @@
-const query = (pool, query, cb) => {
-  pool.query(query)
-    .then(result => {
-      cb({ OK: true, result: result });
-    })
-    .fail(error => {
-      console.log('error:', error);
-      cb({ OK: false, result: error });
-    });
-};
+
 
 module.exports = (req, cb) => {
   if (!req.username) { console.log('Bad username'); cb({ OK: false, result: 'No username! You must provide one!' }); }
@@ -19,7 +10,7 @@ module.exports = (req, cb) => {
     const pool = require('node-jt400').pool(config);
 
     if (req.command.toUpperCase().startsWith('SELECT')) {
-      query(pool, req.command, result => {
+      require('./query')(pool, req.command, result => {
         if (req.get_columns) {
           const ignoredWords = ['join', 'inner', 'outer', 'where', 'order'], tables = [];
           let canAdd = false;
@@ -36,16 +27,20 @@ module.exports = (req, cb) => {
             table = table.toUpperCase();
             let schemaSepIndex = table.indexOf('/');
             if (schemaSepIndex < 0) schemaSepIndex = table.indexOf('.');
-            return query(pool, `SELECT * FROM SYSCOLUMNS WHERE TBNAME = '${
-              table.substr(schemaSepIndex + 1)
-              }'`, result => {
-                const columnsInner = [];
-                result.result.map(r => {
-                  if (r.TABLE_SCHEMA === table.substr(0, schemaSepIndex))
+            require('./getDefaultSchema')(pool, schemaSepIndex ? table.substr(schemaSepIndex + 1) : table, schemaName => {
+              console.log('table:', table);
+              console.log('schemaSepIndex:', schemaSepIndex);
+              console.log('schemaName:', schemaName);
+              return require('./query')(pool, `SELECT * FROM SYSCOLUMNS WHERE TBNAME = '${
+                schemaSepIndex ? table.substr(schemaSepIndex + 1) : table
+                }' AND TABLE_SCHEMA = '${schemaSepIndex ? table.substr(0, schemaSepIndex) : schemaName}'`, result => {
+                  const columnsInner = [];
+                  result.result.map(r => {
                     columnsInner.push(r);
+                  });
+                  columns.push({ table, data: columnsInner });
                 });
-                columns.push({ table, data: columnsInner });
-              });
+            });
           });
 
           require('wait-until')(100, 1000, () => columns.length === tables.length, () => {
