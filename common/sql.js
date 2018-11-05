@@ -50,31 +50,34 @@ module.exports = (req, cb) => {
         } else cb(result);
       });
     } else if (req.command.toUpperCase().startsWith('UPDATE')) {
-      pool.update(req.command).then(nUpdated => {
-        const result = 'Updated ' + nUpdated + ' rows';
-        console.log(result);
-        cb({ OK: true, result });
-      })
+      pool.update(req.command)
+        .then(nUpdated => {
+          const result = 'Updated ' + nUpdated + ' rows';
+          console.log(result);
+          cb({ OK: true, result });
+        })
         .fail(error => {
           console.log('error:', error);
           cb({ OK: false, result: error });
         });
     } else if (req.command.toUpperCase().startsWith('DELETE')) {
-      pool.update(req.command).then(nUpdated => {
-        const result = 'Deleted ' + nUpdated + ' rows';
-        console.log(result);
-        cb({ OK: true, result });
-      })
+      pool.update(req.command)
+        .then(nUpdated => {
+          const result = 'Deleted ' + nUpdated + ' rows';
+          console.log(result);
+          cb({ OK: true, result });
+        })
         .fail(error => {
           console.log('error:', error);
-          cb({ OK: false, result: error });
+          cb({ OK: false, result: JSON.stringify(error) });
         });
     } else if (req.command.toUpperCase().startsWith('INSERT')) {
-      pool.insertAndGetId(req.command).then(id => {
-        const result = 'Inserted new row with id ' + id;
-        console.log(result);
-        cb({ OK: true, result: { result, id } });
-      })
+      pool.insertAndGetId(req.command)
+        .then(id => {
+          const result = 'Inserted new row with id ' + id;
+          console.log(result);
+          cb({ OK: true, result: { result, id } });
+        })
         .fail(error => {
           console.log('error:', error);
           cb({ OK: false, result: error });

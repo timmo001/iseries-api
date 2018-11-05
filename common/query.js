@@ -5,6 +5,6 @@ module.exports = (pool, query, cb) => {
     })
     .fail(error => {
       console.log('error:', error);
-      cb({ OK: false, result: error });
+      cb({ OK: false, result: JSON.stringify(error.message) });
     });
 };
