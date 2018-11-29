@@ -22,7 +22,7 @@
     "morgan": "^1.9.1",
     "node-jt400": "^2.0.0",
     "pug": "^2.0.3",
-    "superagent": "^3.8.3",
+    "superagent": "^4.0.0",
     "wait-until": "^0.0.2",
     "ws": "^6.1.0"
   },
