@@ -24,7 +24,7 @@
     "pug": "^2.0.3",
     "superagent": "^4.0.0",
     "wait-until": "^0.0.2",
-    "ws": "^6.1.0"
+    "ws": "^6.1.2"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
