@@ -21,6 +21,7 @@ module.exports = (command, req, res) => {
       keys.map(key => set += `${key} = ?, `);
       pool.batchUpdate(`UPDATE ${req.body.table} ${set.slice(0, -2)} WHERE ${keys[0]} = ?`, dataArr)
         .then(result => {
+          pool.close();
           res.status(200).json({
             message: `Updated ${result.length} rows`,
             result
@@ -29,6 +30,7 @@ module.exports = (command, req, res) => {
     } else {
       pool.batchUpdate(`INSERT INTO ${req.body.table} (${keys.join(',')}) VALUES(${values.join(',')})`, dataArr)
         .then(result => {
+          pool.close();
           res.status(200).json({
             message: `Inserted ${result.length} rows`,
             result

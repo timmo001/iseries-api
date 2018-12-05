@@ -1,5 +1,3 @@
-
-
 module.exports = (req, cb) => {
   if (!req.username) { console.log('Bad username'); cb({ OK: false, result: 'No username! You must provide one!' }); }
   else if (!req.password) { console.log('Bad password'); cb({ OK: false, result: 'No password! You must provide one!' }); }
@@ -7,7 +5,8 @@ module.exports = (req, cb) => {
   else if (!req.command) { console.log('Bad command'); cb({ OK: false, result: 'No command! You must provide one!' }); }
   else {
     const config = { host: req.hostname, user: req.username, password: req.password };
-    const pool = require('node-jt400').pool(config);
+    const jt400 = require('node-jt400');
+    const pool = jt400.pool(config);
 
     if (req.command.toUpperCase().startsWith('SELECT')) {
       require('./query')(pool, req.command, result => {
