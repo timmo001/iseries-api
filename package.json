@@ -20,7 +20,7 @@
     "http-errors": "^1.7.1",
     "lokijs": "^1.5.5",
     "morgan": "^1.9.1",
-    "node-jt400": "^2.0.0",
+    "node-jt400": "^3.0.2",
     "pug": "^2.0.3",
     "superagent": "^4.0.0",
     "wait-until": "^0.0.2",
