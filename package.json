@@ -9,7 +9,9 @@
   "scripts": {
     "start": "node index.js",
     "dev": "nodemon index.js",
-    "test": "mocha --exit"
+    "test": "mocha --exit",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "dependencies": {
     "cookie-parser": "^1.4.3",
@@ -24,11 +26,13 @@
     "pug": "^2.0.3",
     "superagent": "^4.0.0",
     "wait-until": "^0.0.2",
-    "ws": "^6.1.2"
+    "ws": "^6.1.2",
+    "snyk": "^1.189.0"
   },
   "devDependencies": {
     "mocha": "^5.2.0",
     "nodemon": "^1.18.9",
     "supertest": "^3.3.0"
-  }
+  },
+  "snyk": true
 }
